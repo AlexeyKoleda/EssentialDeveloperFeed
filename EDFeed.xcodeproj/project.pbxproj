@@ -10,6 +10,8 @@
 		FAD791BB29646B7200901733 /* EDFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD791B229646B7200901733 /* EDFeed.framework */; };
 		FAD791C029646B7200901733 /* EDFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD791BF29646B7200901733 /* EDFeedTests.swift */; };
 		FAD791C129646B7200901733 /* EDFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD791B529646B7200901733 /* EDFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAD791CF29646BB100901733 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD791CD29646BB100901733 /* FeedLoader.swift */; };
+		FAD791D029646BB100901733 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD791CE29646BB100901733 /* FeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 		FAD791B529646B7200901733 /* EDFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDFeed.h; sourceTree = "<group>"; };
 		FAD791BA29646B7200901733 /* EDFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EDFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD791BF29646B7200901733 /* EDFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDFeedTests.swift; sourceTree = "<group>"; };
+		FAD791CD29646BB100901733 /* FeedLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
+		FAD791CE29646BB100901733 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD791B529646B7200901733 /* EDFeed.h */,
+				FAD791CC29646BB000901733 /* Feed Feature */,
 			);
 			path = EDFeed;
 			sourceTree = "<group>";
@@ -80,6 +85,15 @@
 				FAD791BF29646B7200901733 /* EDFeedTests.swift */,
 			);
 			path = EDFeedTests;
+			sourceTree = "<group>";
+		};
+		FAD791CC29646BB000901733 /* Feed Feature */ = {
+			isa = PBXGroup;
+			children = (
+				FAD791CD29646BB100901733 /* FeedLoader.swift */,
+				FAD791CE29646BB100901733 /* FeedItem.swift */,
+			);
+			path = "Feed Feature";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +158,7 @@
 				TargetAttributes = {
 					FAD791B129646B7200901733 = {
 						CreatedOnToolsVersion = 14.0.1;
+						LastSwiftMigration = 1400;
 					};
 					FAD791B929646B7200901733 = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -191,6 +206,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD791CF29646BB100901733 /* FeedLoader.swift in Sources */,
+				FAD791D029646BB100901733 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +353,7 @@
 		FAD791C529646B7200901733 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -356,6 +374,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +383,7 @@
 		FAD791C629646B7200901733 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -392,6 +412,7 @@
 		FAD791C829646B7200901733 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QN9H6D325T;
@@ -408,6 +429,7 @@
 		FAD791C929646B7200901733 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QN9H6D325T;
