@@ -89,10 +89,9 @@
 		FAD791B429646B7200901733 /* EDFeed */ = {
 			isa = PBXGroup;
 			children = (
-				FAD791D52967AD8B00901733 /* Feed API */,
 				FAD791B529646B7200901733 /* EDFeed.h */,
+				FAD791D52967AD8B00901733 /* Feed API */,
 				FAD791CC29646BB000901733 /* Feed Feature */,
-				FAAE98602969B587005FECEE /* FeedItemsMapper.swift */,
 			);
 			path = EDFeed;
 			sourceTree = "<group>";
@@ -120,6 +119,7 @@
 			children = (
 				FAD791D62967ADA100901733 /* RemoteFeedLoader.swift */,
 				FAD791D82967ADAD00901733 /* HTTPClient.swift */,
+				FAAE98602969B587005FECEE /* FeedItemsMapper.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
