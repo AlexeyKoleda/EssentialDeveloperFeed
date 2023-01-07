@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FAAE98612969B587005FECEE /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE98602969B587005FECEE /* FeedItemsMapper.swift */; };
+		FAAE98642969B9F0005FECEE /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE98622969B9DB005FECEE /* XCTestCase+MemoryLeakTracking.swift */; };
 		FAD791BB29646B7200901733 /* EDFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD791B229646B7200901733 /* EDFeed.framework */; };
 		FAD791C129646B7200901733 /* EDFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD791B529646B7200901733 /* EDFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAD791CF29646BB100901733 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD791CD29646BB100901733 /* FeedLoader.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		FAAE98602969B587005FECEE /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
+		FAAE98622969B9DB005FECEE /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		FAD791B229646B7200901733 /* EDFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EDFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD791B529646B7200901733 /* EDFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDFeed.h; sourceTree = "<group>"; };
 		FAD791BA29646B7200901733 /* EDFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EDFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FAAE98652969B9F4005FECEE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FAAE98622969B9DB005FECEE /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		FAD791A829646B7200901733 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +100,7 @@
 		FAD791BE29646B7200901733 /* EDFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAAE98652969B9F4005FECEE /* Helpers */,
 				FAD791D32965C36E00901733 /* RemoteFeedLoaderTests.swift */,
 			);
 			path = EDFeedTests;
@@ -236,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD791D42965C36E00901733 /* RemoteFeedLoaderTests.swift in Sources */,
+				FAAE98642969B9F0005FECEE /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
