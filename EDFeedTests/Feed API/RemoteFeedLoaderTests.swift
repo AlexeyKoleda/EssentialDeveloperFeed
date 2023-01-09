@@ -17,7 +17,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
     
     func test_load_requestsDataFromURL() {
-        let url = URL(string: "https://a-given-url.com")!
+        let url = anyURL()
         let (sut, client) = makeSUT(url: url)
         
         sut.load { _ in }
@@ -26,7 +26,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
     
     func test_loadTwice_requestsDataFromURLTwice() {
-        let url = URL(string: "https://a-given-url.com")!
+        let url = anyURL()
         let (sut, client) = makeSUT(url: url)
         
         sut.load { _ in }
@@ -39,7 +39,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
 
         expect(sut, toCompleteWith: failure(.connectivity), when: {
-            let clientError = NSError(domain: "Test", code: 0)
+            let clientError = anyNSError()
             client.complete(with: clientError)
         })
     }
@@ -60,7 +60,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWith: failure(.invalidData), when: {
-            let invalidJSON = Data("invalid json".utf8)
+            let invalidJSON = anyData()
             client.complete(withStatusCode: 200, data: invalidJSON)
         })
     }
@@ -79,13 +79,13 @@ final class RemoteFeedLoaderTests: XCTestCase {
         
         let item1 = makeItem(
             id: UUID(),
-            imageURL: URL(string: "http://a-image-url.com")!)
+            imageURL: anyURL())
         
         let item2 = makeItem(
             id: UUID(),
             description: "description",
             location: "location",
-            imageURL: URL(string: "http://another-image-url.com")!)
+            imageURL: anyURL())
         
         let items = [item1.model, item2.model]
         
@@ -178,41 +178,28 @@ final class RemoteFeedLoaderTests: XCTestCase {
         
         action()
         wait(for: [exp], timeout: 1.0)
-        }
+    }
     
     private func failure(_ error: RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
         return .failure(error)
     }
     
     private class HTTPClientSpy: HTTPClient {
-        var messages = [(
-            url: URL,
-            completion: (HTTPClientResult) -> Void
-        )]()
+        var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
         
         var requestedURLs: [URL] {
             messages.map { $0.url }
         }
         
-        func get(
-            from url: URL,
-            completion: @escaping (HTTPClientResult) -> Void
-        ) {
+        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
             messages.append((url, completion))
         }
         
-        func complete(
-            with error: Error,
-            at index: Int = 0
-        ) {
+        func complete(with error: Error, at index: Int = 0) {
             messages[index].completion(.failure(error))
         }
         
-        func complete(
-            withStatusCode code: Int,
-            data: Data,
-            at index: Int = 0
-        ) {
+        func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
             let response = HTTPURLResponse(
                 url: requestedURLs[index],
                 statusCode: code,
