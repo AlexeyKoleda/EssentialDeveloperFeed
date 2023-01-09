@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CI.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>EDFeed.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,9 +17,14 @@
 		<key>EDFeedAPIEndToEndTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>EDFeedEndToEndTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>EDFeedUnitTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -22,6 +32,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>FAAE9870296BFB8E005FECEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>FAD791B129646B7200901733</key>
 		<dict>
 			<key>primary</key>
