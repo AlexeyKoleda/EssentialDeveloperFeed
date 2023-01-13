@@ -27,4 +27,3 @@ public struct LocalFeedImage {
 }
 
 extension LocalFeedImage: Equatable {}
-extension LocalFeedImage: Codable {}
