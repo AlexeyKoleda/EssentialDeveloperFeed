@@ -129,19 +129,19 @@ final class CodableFeedStoreTests: XCTestCase {
         let sut = makeSUT()
         var completedOperationsInOrder = [XCTestExpectation]()
         
-        let op1 = expectation(description: "Wait for Operaion_1")
+        let op1 = expectation(description: "Operaion_1")
         sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
             completedOperationsInOrder.append(op1)
             op1.fulfill()
         }
         
-        let op2 = expectation(description: "Wait for Operaion_2")
+        let op2 = expectation(description: "Operaion_2")
         sut.deleteCachedFeed { _ in
             completedOperationsInOrder.append(op2)
             op2.fulfill()
         }
         
-        let op3 = expectation(description: "Wait for Operaion_3")
+        let op3 = expectation(description: "Operaion_3")
         sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
             completedOperationsInOrder.append(op3)
             op3.fulfill()
