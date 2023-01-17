@@ -35,14 +35,22 @@ final class EDFeedCacheIntegrationTests: XCTestCase {
         let loadSUT = makeSUT()
         let feed = uniqueImageFeed().models
         
-        let saveExp = expectation(description: "Wait for save completion")
-        saveSUT.save(feed) { saveError in
-            XCTAssertNil(saveError, "Expected to save feed successfully")
-            saveExp.fulfill()
-        }
-        wait(for: [saveExp], timeout: 1.0)
+        save(feed, with: saveSUT)
         
         expect(loadSUT, toLoad: feed)
+    }
+    
+    func test_load_overridesItemsSavedOnASeparateInsatance() {
+        let firstSaveSUT = makeSUT()
+        let lastSaveSUT = makeSUT()
+        let loadSUT = makeSUT()
+        let firstFeed = uniqueImageFeed().models
+        let latestFeed = uniqueImageFeed().models
+        
+        save(firstFeed, with: firstSaveSUT)
+        save(latestFeed, with: lastSaveSUT)
+        
+        expect(loadSUT, toLoad: latestFeed)
     }
     
     //MARK: - Helpers
@@ -58,6 +66,15 @@ final class EDFeedCacheIntegrationTests: XCTestCase {
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
+    }
+    
+    private func save(_ feed: [FeedImage], with sut: LocalFeedLoader, file: StaticString = #filePath, line: UInt = #line) {
+        let exp = expectation(description: "Wait for save completion")
+        sut.save(feed) { saveError in
+            XCTAssertNil(saveError, "Expected to save feed successfully")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func expect(
