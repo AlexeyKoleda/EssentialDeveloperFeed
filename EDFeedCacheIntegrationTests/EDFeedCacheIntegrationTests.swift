@@ -34,12 +34,37 @@ final class EDFeedCacheIntegrationTests: XCTestCase {
                 XCTAssertEqual(imageFeed, [], "Expected empty feed")
             
             case let .failure(error):
-                XCTFail("Expected successful feed result, got \(error) instead")
+                XCTFail("Expected successful feed result, but got \(error) instead")
             }
             exp.fulfill()
         }
         
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    func test_load_deliversItemsSavedOnASeparateInstance() {
+        let saveSUT = makeSUT()
+        let loadSUT = makeSUT()
+        let feed = uniqueImageFeed().models
+        
+        let saveExp = expectation(description: "Wait for save completion")
+        saveSUT.save(feed) { saveError in
+            XCTAssertNil(saveError, "Expected to save feed successfully")
+            saveExp.fulfill()
+        }
+        wait(for: [saveExp], timeout: 1.0)
+        
+        let loadExp = expectation(description: "Wait for load completion")
+        loadSUT.load { loadResult in
+            switch loadResult {
+            case let .success(imageFeed):
+                XCTAssertEqual(imageFeed, feed)
+            case let .failure(error):
+                XCTFail("Expected successful feed result, but got \(error) instead")
+            }
+            loadExp.fulfill()
+        }
+        wait(for: [loadExp], timeout: 1.0)
     }
     
     //MARK: - Helpers
