@@ -14,7 +14,7 @@ final class FeedItemsMapper {
     
     private static var OK_200: Int { return 200 }
     
-    internal static func map(
+    static func map(
         _ data: Data,
         from response: HTTPURLResponse
     ) throws -> [RemoteFeedItem] {
