@@ -28,6 +28,8 @@
 		FA9A875A2971630700CA2602 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A87592971630700CA2602 /* FeedCachePolicy.swift */; };
 		FAA67FCF2976A1D4002BAC6D /* EDFeedCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA67FCE2976A1D4002BAC6D /* EDFeedCacheIntegrationTests.swift */; };
 		FAA67FD32976A6A9002BAC6D /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE98622969B9DB005FECEE /* XCTestCase+MemoryLeakTracking.swift */; };
+		FAA67FD72976B5DF002BAC6D /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1949AC2970988B00609E2B /* FeedCacheTestHelpers.swift */; };
+		FAA67FD82976B7C7002BAC6D /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE9869296BDE73005FECEE /* SharedTestHelpers.swift */; };
 		FAAE98612969B587005FECEE /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE98602969B587005FECEE /* FeedItemsMapper.swift */; };
 		FAAE98642969B9F0005FECEE /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE98622969B9DB005FECEE /* XCTestCase+MemoryLeakTracking.swift */; };
 		FAAE9868296B10B4005FECEE /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE9867296B10B4005FECEE /* URLSessionHTTPClientTests.swift */; };
@@ -450,7 +452,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA67FD82976B7C7002BAC6D /* SharedTestHelpers.swift in Sources */,
 				FAA67FCF2976A1D4002BAC6D /* EDFeedCacheIntegrationTests.swift in Sources */,
+				FAA67FD72976B5DF002BAC6D /* FeedCacheTestHelpers.swift in Sources */,
 				FAA67FD32976A6A9002BAC6D /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,7 +540,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -557,7 +561,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
